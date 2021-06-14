@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Play the Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        canvas {
+            border:1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            border: 10px solid black;
+        }
+
+        td, th {
+            border: 5px solid #a9a9a9;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+    </style>
+</head>
+
+<body onload=startGame()>
+    <script></script><br>
+
+    <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button><br><br>
+    <button onmousedown=restartGame()>Restart Game</button>
+
+    <p>Use the ACCELERATE button to stay in the air</p>
+    <p>How long can you stay alive?</p>
+
+
+    <p><button onclick="sortTable()">Sort</button></p>
+
+    <h2>High-Score Table</h2>
+
+    <table id="myTable">
+      <tr>
+        <th>Rank</th>
+        <th>Score</th>
+        <th>Username</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>score1 </td>
+        <td>username1 </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>score2 </td>
+        <td>username2 </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>score3 </td>
+        <td>username3 </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>score4 </td>
+        <td>username4 </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>score5 </td>
+        <td>username5 </td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>score6 </td>
+        <td>username6 </td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>score7 </td>
+        <td>username7 </td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>score8 </td>
+        <td>username8 </td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>score9 </td>
+        <td>username9 </td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>score10 </td>
+        <td>username10 </td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>score11 </td>
+        <td>username11 </td>
+      </tr>
+        <td>12</td>
+        <td>score12 </td>
+        <td>username12 </td>
+      </tr>
+        <td>13</td>
+        <td>score13 </td>
+        <td>username13 </td>
+      </tr>
+        <td>14</td>
+        <td>score14 </td>
+        <td>username14 </td>
+      </tr>
+        <td>15</td>
+        <td>score15 </td>
+        <td>username15 </td>
+      </tr>
+    </table>
+</body>
+</html>
