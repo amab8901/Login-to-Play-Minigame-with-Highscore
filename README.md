@@ -1,4 +1,4 @@
-# Programming-Portfolio
+# Login to Play Minigame with Highscore
 
 This is a minigame I've created using Python, HTML, CSS, JavaScript and http-server. The CSS, JS and HTML are stored in the HTML files, and these .html files are controlled from the .py script. 
 
