@@ -3,8 +3,13 @@ from collections import OrderedDict
 import webbrowser
 import cgi
 import cgitb
+import js2py
 cgitb.enable()
 
+# testing javascript in python (unfinished)
+js1 = 'console.log("hi whatsup man")'
+res1 = js2py.eval_js(js1)
+res1
 
 
 # import all webpages
@@ -14,20 +19,47 @@ Username = open("src/Username.html").read()
 Password = open("src/Password.html").read()
 
 # List of usernames
-userlist = ['user1', 'user2', 'user3', 'user4', 'user5', 'user6', 'user7', 'user8',
-            'user9', 'user10', 'user11', 'user12', 'user13', 'user14', 'user15']
+userlist = [
+    'user1', 
+    'user2', 
+    'user3', 
+    'user4', 
+    'user5', 
+    'user6', 
+    'user7', 
+    'user8',
+    'user9', 
+    'user10', 
+    'user11', 
+    'user12', 
+    'user13', 
+    'user14', 
+    'user15']
+
 userinput = "|".join(userlist)
 
 # List of passwords
-passlist = ['pass1', 'pass2', 'pass3', 'pass4', 'pass5', 'pass6', 'pass7', 'pass8',
-             'pass9', 'pass10', 'pass11', 'pass12', 'pass13', 'user14', 'pass15']
+passlist = ['pass1', 
+            'pass2', 
+            'pass3', 
+            'pass4', 
+            'pass5', 
+            'pass6', 
+            'pass7', 
+            'pass8',
+            'pass9', 
+            'pass10', 
+            'pass11', 
+            'pass12', 
+            'pass13', 
+            'user14', 
+            'pass15']
 
 # Ordered dictionary of table values
 tableVal = OrderedDict()
 for i in range(0, 15):
     tableVal[userlist[i]] = ""
 tableVal = list(tableVal.items())
-
 class requestHandler(BaseHTTPRequestHandler):
     def do_GET(self): # put all GET requests in this category
 
@@ -60,8 +92,17 @@ class requestHandler(BaseHTTPRequestHandler):
 
             # insert initial table values
             for i in range(1, 16):
-                output = output.replace("score"+str(i)+" ", str(tableVal[i-1][1])) # insert list of scores into placeholders in the table
-                output = output.replace("username"+str(i)+" ", tableVal[i-1][0]) # insert list of usernames into placeholders in the table
+                output = output.replace(
+                        "score"+str(i)+" ",
+                         str(tableVal[i-1][1])
+                    ) # insert list of scores into placeholders in the table
+                output = output.replace(
+                        "username"+str(i)+" ", 
+                        tableVal[i-1][0]
+                        # <td id="15score">score15 </td>
+                    ) # insert list of usernames into placeholders in the table
+                    # sessionStorage.getItem("score1")
+
 
             output = output.replace("specUser", uservar)
 

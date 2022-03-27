@@ -157,7 +157,6 @@ function updateGameArea() {
     myScore.update();
     myGamePiece.newPos();
     myGamePiece.update();
-
 }
 
 function everyinterval(n) {
