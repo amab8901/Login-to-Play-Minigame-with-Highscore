@@ -1,4 +1,4 @@
-# Login to Play Minigame with Highscore
+# Preparations
 
 Run in terminal:
 `npm install http-server -g`
