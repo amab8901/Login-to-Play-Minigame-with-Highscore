@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Play the Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        body {
+          background: linear-gradient(rgba(114,114,112,255), rgba(12,12,12,255));
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        canvas {
+          border:1px solid #d3d3d3;
+          background-color: white;
+          width: 650px;
+          height: 400px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 30px;
+          border-radius: 5px;
+          box-shadow: 3px 3px 5px black,
+                      inset 1px 1px 5px grey;
+        }
+
+        .control {
+          text-align: center;
+        }
+
+        .control--accelerate {
+          width: 120px;
+          height: 30px;
+          margin-top: 20px;
+          border-radius: 20px;
+          cursor: pointer;
+          background: rgba(187,187,187,255);
+          box-shadow: 2px 2px 5px black,
+              inset 1px 1px 6px white;
+          font-family: Frutiger; 
+          font-weight: bold;
+          margin-right: 50px;
+          cursor: pointer;
+        }
+
+        .control--restart {
+          width: 80px;
+          height: 30px;
+          margin-top: 20px;
+          border-radius: 20px;
+          cursor: pointer;
+          background: rgba(187,187,187,255);
+          box-shadow: 2px 2px 5px black,
+              inset 1px 1px 6px white;
+          font-family: Frutiger; 
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        .instruction {
+          width: 450px;
+          color: yellow;
+          margin-left: auto;
+          margin-right: auto;
+          border-radius: 30px;
+        }
+
+        table {
+          background: rgba(215,215,215,255);
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 30px;
+          border: 10px solid black;
+        }
+
+        .table--header {
+          text-align: center;
+        }
+
+        .table--sort {
+          width: 60px;
+          height: 30px;
+          margin-top: 20px;
+          border-radius: 20px;
+          cursor: pointer;
+          background: rgba(187,187,187,255);
+          box-shadow: 2px 2px 5px black,
+              inset 1px 1px 6px white;
+          font-family: Frutiger; 
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        .table--title {
+          text-align: center;
+          color: yellow;
+        }
+
+        .table > tr > td {
+          background: green;
+        }
+
+        td, th {
+          border: 5px solid #a9a9a9;
+          text-align: left;
+          padding: 8px;
+          text-indent: 5px;
+        }
+
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+
+    </style>
+</head>
+
+<body 
+  onload=startGame()
+>
+    <script></script><br>
+
+    <div class="control">
+      <span>
+        <button 
+          onmousedown="accelerate(-0.2)" 
+          onmouseup="accelerate(0.05)"
+          class="control--accelerate"
+        >
+          ACCELERATE
+        </button>
+        <button 
+          onmousedown=restartGame()
+          class="control--restart"
+        >
+          Restart
+        </button>
+      </span>
+      <div class="instruction">
+        <p>Use the ACCELERATE button to stay in the air</p>
+        <p>How long can you stay alive?</p>
+      </div>
+
+      <p>
+        <button 
+          onclick="sortTable()"
+          class="table--sort"
+        >
+          Sort
+        </button>
+      </p>
+    </div>
+
+    <h2 class="table--title">
+      High-Score Table
+    </h2>
+
+    <!-- note: "1" - "15", "score1 " - "score15 " and "username1 " - "username15" are all placeholders that get replaced in ./app.py -->
+    <table id="myTable">
+      <tr>
+        <th class="table--header">
+          Rank
+        </th>
+        <th class="table--header">
+          Score
+        </th>
+        <th class="table--header">
+          Username
+        </th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>score1 </td>
+        <td>username1 </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>score2 </td>
+        <td>username2 </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>score3 </td>
+        <td>username3 </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>score4 </td>
+        <td>username4 </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>score5 </td>
+        <td>username5 </td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>score6 </td>
+        <td>username6 </td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>score7 </td>
+        <td>username7 </td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>score8 </td>
+        <td>username8 </td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>score9 </td>
+        <td>username9 </td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>score10 </td>
+        <td>username10 </td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>score11 </td>
+        <td>username11 </td>
+      </tr>
+        <td>12</td>
+        <td>score12 </td>
+        <td>username12 </td>
+      </tr>
+        <td>13</td>
+        <td>score13 </td>
+        <td>username13 </td>
+      </tr>
+        <td>14</td>
+        <td>score14 </td>
+        <td>username14 </td>
+      </tr>
+        <td>15</td>
+        <td>score15 </td>
+        <td>username15 </td>
+      </tr>
+    </table>
+</body>
+</html>
